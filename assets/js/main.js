@@ -161,6 +161,7 @@ $(document).ready(function(){
         scrollbar('#countries-list');
     }
     
+    
 });
 const scrollbar = (elem) => {
     new PerfectScrollbar(elem, {
@@ -198,9 +199,9 @@ const clickFunctions = () => {
                                     <div class="file-feed-cont">
                                         <input type="file" id="feedFile"/>
                                         <label for="feedFile">
-                                            <img src="assets/img/file-img.png" />
-                                            <span>Upload Picture</span>
+                                            <img src="assets/img/file-img.png" />                                            
                                         </label>
+                                        <span class="upload">Upload Picture</span>
                                     </div>
                                     <div class="input-cont clearfix">
                                         <label for="feed-title">Title</label>
@@ -237,6 +238,32 @@ const clickFunctions = () => {
                 createCategoriesModal(categories);
                 createCountriesModal(country_list);
                 createSelectModal();
+                uploadClick = () => {
+                    $('.file-feed-cont span.upload').on('click', function(){
+                        $(this).addClass('delete').removeClass('upload');
+                        $(this).unbind('click');
+                        $('#feedFile').trigger('click');
+                        
+                    })
+                }
+                uploadClick()
+                $('#feedFile').on('change', function() {
+                    console.log(1)
+                    var sis = $(this);
+                    if($(this).val !== '') {
+                        $('.file-feed-cont span').text('Delete Picture');
+                        $('.file-feed-cont span').addClass('delete');
+                        $('.file-feed-cont span.delete').on('click', function(){
+                            sis.val('');
+                            $('.file-feed-cont span').text('Upload Picture');
+                            $(this).removeClass('delete').addClass('upload');
+                            
+                            $(this).unbind('click');
+                            
+                            uploadClick();
+                        })
+                    }
+                });
                 $('#modal-feed').modal();
     })
     $('.menu-execute').on('click', function() {
