@@ -135,6 +135,7 @@ z-index: 1
     padding: 7px 23px 7px;
     transition: all 0.3s ease-in-out;
     line-height: 1.1;
+    cursor: pointer;
 }
 .right-nav ol > li ul li:hover span {
     background: #f8f7fa
