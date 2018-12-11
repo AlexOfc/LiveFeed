@@ -188,7 +188,7 @@ const clickFunctions = () => {
                                 </div>
                                 <div class="feedback-block">
                                     <p>Feedback</p>
-                                    <span>Mailto: <a href="mailto:info@golivefeed.com">info@golivefeed.com</a></span>
+                                    <span><a href="mailto:info@golivefeed.com">info@golivefeed.com</a></span>
                                 </div>
                             </div>
                             <div class="right-modal">
