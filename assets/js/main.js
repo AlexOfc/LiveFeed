@@ -379,9 +379,9 @@ const createCountries = (array) => {
 }
 const createCategories = (array) => {   
     for (i=0; i<array.length; i++) {
-        if (i < 5) {
+        if (i < 9) {
             $('.desktop-menu-list').append(`<li><a href="javascript:void(0)">${array[i].category}</a></li>`)
-        } else if (i == 5) {
+        } else if (i == 9) {
             $('.desktop-menu-list').append(`<li class="menu-more"><span class="menu-execute">More <i class="fa fa-chevron-down"></i></span><ul class="hidden-menu" id="hidden-menu"></ul></li>`)
         } else {
             $('.menu-more ul').append(`<li><a href="javascript:void(0)">${array[i].category}</a></li>`)
