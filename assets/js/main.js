@@ -206,10 +206,14 @@ const clickFunctions = () => {
                                     <div class="input-cont clearfix">
                                         <label for="feed-title">Title</label>
                                         <input type="text" id="feed-title" name="feed-title"/>
+                                        <div class="count-title">
+                                        </div>
                                     </div>
                                     <div class="input-cont clearfix">
                                         <label for="feed-descr">Description</label>
                                         <textarea id="feed-descr" name="feed-descr" rows="2"/></textarea>
+                                        <div class="count-descr">
+                                        </div>
                                     </div>                                    
                                     <div class="double-input clearfix">
                                         <div class="input-cont clearfix">
@@ -246,7 +250,27 @@ const clickFunctions = () => {
                         
                     })
                 }
-                uploadClick()
+                uploadClick();
+                let titleLength = 35,
+                    descrLength = 150;
+                $('.count-title').text(`${titleLength} Сharacters left`)
+                $('#feed-title').on('keyup', function() {
+                    if (titleLength - $(this).val().length > 0) {
+                        $('.count-title').text(`${titleLength - $(this).val().length} Сharacters left`)
+                    } else {
+                        $('.count-title').text('')
+                    }
+                    
+                });
+                $('.count-descr').text(`${descrLength} Сharacters left`)
+                $('#feed-descr').on('keyup', function() {
+                    if (descrLength - $(this).val().length > 0) {
+                        $('.count-descr').text(`${descrLength - $(this).val().length} Сharacters left`)
+                    } else {
+                        $('.count-descr').text('')
+                    }
+                    
+                });
                 $('#feedFile').on('change', function() {
                     console.log(1)
                     var sis = $(this);
